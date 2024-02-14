@@ -1,28 +1,21 @@
+// import {rows, columns} from './config.js';
+import Entity from './entity.js';
 
-export default class Apple {
+export default class Apple extends Entity {
     constructor(color) {
+        super();
         // инициализация параметров
         // цвет, размер, начальная позиция
-
-        // this.width = 6
-        // this.height = 6 
-        this.color = color;
-
-        // this.draw();
+        this.color = color; 
     }
     create() {
-        // отрисовка яблока
-    }
-    destroy() {
-        
-        // this.draw()
-    }
-    newPossition() {
-        // this.x = 
-        // this.y =
-        // получение новой позиции яблока
+        super.newPossition();
 
-        // this.draw();
+        this.cell = document.getElementById(`cell-${this.x}-${this.y}`);
+        this.cell.classList.add('apple');
+
+        // this.cell.style.backgroundColor = `${this.color}`;
+        // отрисовка яблока
     }
 }
 

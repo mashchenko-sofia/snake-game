@@ -5,12 +5,12 @@ export default class Score {
         this.scoreBox = document.querySelector('.score-box');
         this.score = score;
 
-        this.draw();
+        this.create();
     }
     increase() {
         // увеличение кол-во очков
         this.score += 1;
-        this.draw();
+        this.create();
     }
     // dicrease() {
     //     // уменьшение кол-во очков
@@ -18,9 +18,9 @@ export default class Score {
     reset() {
         // сброс очков
         this.score = 0;
-        this.draw();
+        this.create();
     }
-    draw() {
+    create() {
         this.scoreBox.innerHTML = this.score;
     }
 }
