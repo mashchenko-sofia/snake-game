@@ -1,21 +1,24 @@
-// import {rows, columns} from './config.js';
 import Entity from './entity.js';
 
 export default class Apple extends Entity {
-    constructor(color) {
+    constructor(color, snake) {
         super();
-        // инициализация параметров
-        // цвет, размер, начальная позиция
+        
         this.color = color; 
+        this.snake = snake;
     }
     create() {
         super.newPossition();
 
         this.cell = document.getElementById(`cell-${this.x}-${this.y}`);
-        this.cell.classList.add('apple');
-
-        // this.cell.style.backgroundColor = `${this.color}`;
-        // отрисовка яблока
+        if (this.snake.body.includes(this.cell)) {
+            this.create()
+        } else {
+            this.cell.classList.add('apple');
+        }
+    }
+    destroy() {
+        this.cell.classList.remove('apple');
     }
 }
 

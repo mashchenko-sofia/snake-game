@@ -1,20 +1,24 @@
-const container = document.querySelector('.game-body');
-console.log('container', container)
+const container = document.querySelector('.game__body');
+
+const snakeColor = '#158FAD'
+const snakeLength = 5;
 
 
-const snakeColor = '#158FAD' // hex teal
-const snakeLength = 4;
+const appleColor = '#B8255F'
 
+const fieldSize = 20;
 
-const appleColor = '#B8255F' // hex berry red; DB4035 -- hex red
-// каждую игру случайный цвет
+const direction = 'right';
 
-const rows = 20;
-const columns = 20;
+const easySpeed = 1000;
+const normalSpeed = 500; 
+const hardSpeed = 250;
 
-const direction = 'up'
+const victoryScore = fieldSize^2 - snakeLength;
 
 export { 
     container, snakeColor, snakeLength, 
-    appleColor, rows, columns, direction 
+    appleColor, fieldSize, direction, 
+    easySpeed, normalSpeed, hardSpeed, 
+    victoryScore 
 }

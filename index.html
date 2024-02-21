@@ -1,21 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/main.css">
     <title>Snake game</title>
 </head>
+
 <body>
     <div class="game">
-        <header class="game-header">
-            <div class="score-box"><span class="score-count"></span></div>
+        <nav class="nav">
+            <button class="stop-button invisible">
+                <img src="./imgs/Setting icon.svg" alt="" class="img setting-img">
+            </button>
+        </nav>
+        <header class="game__header">
+            <nav class="menu invisible">
+                <button class="button continue-button">Continue</button>
+                <button class="button settings-button">Settings</button>
+            </nav>
+            <div class="settings invisible">
+                <h1 class="title">Settings</h1>
+                <ul class="settings__list">
+                    <li class="settings__item">
+                        <h3>Record: <span class="record__count-in-settings"></span></h3> 
+                        <button class="reset-record-button">reset</button>
+                    </li>
+                </ul>
+                <button class="button return-from-settings-button">Return</button>
+            </div>
+            <div class="difficulty">
+                <h1 class="title">Choose game difficulty</h1>
+                <form class="difficulty__form">
+                    <label class="difficulty__label">
+                        <input class="difficulty__input" type="radio" name="difficulty" value="easy">
+                        <span>EASY</span>
+                    </label>
+                    <label class="difficulty__label">
+                        <input class="difficulty__input" type="radio" name="difficulty" value="medium" checked>
+                        <span>MEDIUM</span>
+                    </label>
+                    <label class="difficulty__label">
+                        <input class="difficulty__input" type="radio" name="difficulty" value="hard">
+                        <span>HARD</span>
+                    </label>
+                </form>
+                <button class="button start-button">Start Game</button>
+            </div>
+            <div class="game-finished-window invisible">
+                <h1 class="title game-over__title invisible">GAME OVER</h1>
+                <h1 class="title victory__title invisible">VICTORY</h1>
+                <button class="button restart-button">New Game</button>
+            </div>
         </header>
-        <div class="game-body">
-            <button class="button">Начать игру</button>
+        <div class="game__body blured">
+            <div class="score-box">
+                <div class="score">
+                    <img class="img score__img" src="./imgs/Apple Icon .svg" alt="">
+                    <span class="score__count"></span>
+                </div>
+                <div class="record">
+                    <img class="img record__img" src="./imgs/Medal icon.svg" alt="">
+                    <span class="record__count"></span>
+                </div>
+            </div>
         </div>
-        <footer class="game-footer"></footer>
+        <footer class="game__footer">
+        </footer>
     </div>
     <script type="module" src="scripts/game.js"></script>
 </body>
+
 </html>

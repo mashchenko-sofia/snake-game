@@ -1,0 +1,79 @@
+.game__header {
+    position: absolute;
+    z-index: 1;
+
+    margin: 0 40px;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.nav {
+    align-self: flex-end;
+}
+
+
+.difficulty {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+.difficulty__form {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 2em;
+}
+
+.difficulty__label span{
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 1.5em;
+
+
+    color: white;
+    background-color: var(--snakeColor);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+.reset-record-button {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.difficulty__label input:checked + span, .reset-record-button:active{
+    background-color: transparent;
+}
+/* .difficulty__label input:focus + span {
+
+} */
+.difficulty__label:hover, .reset-record-button:hover{
+    transform: scale(0.9);
+}
+.difficulty__input {
+    display: none
+}
+
+
+.game-finished-window {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.settings__list {
+    font-size: 1.7em;
+}
+.settings__item {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}

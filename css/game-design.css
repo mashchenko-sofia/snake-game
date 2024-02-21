@@ -1,0 +1,66 @@
+.game {
+    margin: 5% auto;
+    /* padding: 0 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.field {
+    padding: 2%;
+    width: 70vw;
+    height: 70vw;
+
+    display: grid;
+    grid-template-rows: repeat(var(--fieldSize), calc(100% / var(--fieldSize)) );
+    grid-template-columns:repeat(var(--fieldSize), calc(100% / var(--fieldSize)));
+    
+    background-color: var(--fieldColor);
+    border-radius: 5%;
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+
+}
+.cell {
+    background-color: var(--cellColor); 
+    border-radius: 50%;
+    margin: 35%;
+
+    box-sizing: content-box;
+}
+
+.apple, .snake {
+    margin: 0;
+
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+.apple {
+    background-color: var(--appleColor);
+    border-radius: 50%;
+}
+.snake {
+    background-color: var(--snakeColor);
+    border-radius: 30%;
+
+}
+
+.score-box {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-left: 1em;
+}
+.score, .record {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    font-size: 2em;
+}
+
+/* .snake-head {
+
+}
+.snake-tail {
+
+} */
