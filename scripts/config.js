@@ -14,11 +14,11 @@ const easySpeed = 1000;
 const normalSpeed = 500; 
 const hardSpeed = 250;
 
+
 const victoryScore = fieldSize^2 - snakeLength;
 
 export { 
     container, snakeColor, snakeLength, 
-    appleColor, fieldSize, direction, 
-    easySpeed, normalSpeed, hardSpeed, 
-    victoryScore 
+    appleColor, fieldSize, direction, easySpeed, 
+    normalSpeed, hardSpeed, victoryScore 
 }

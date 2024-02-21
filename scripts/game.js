@@ -1,5 +1,7 @@
 
-import { container, snakeColor, snakeLength, appleColor, fieldSize, direction, victoryScore} from './config.js';
+import { container, snakeColor, snakeLength, 
+    appleColor, fieldSize, direction, easySpeed, 
+    normalSpeed, hardSpeed, victoryScore} from './config.js';
 import Field from './field.js'
 import Snake from './snake.js';
 import Apple from './apple.js';
@@ -21,11 +23,24 @@ class Game {
         
         this.gameOverTitle = document.querySelector('.game-over__title');
         this.victoryTitle = document.querySelector('.victory__title');
+
     }
     start() {
         this.menuWindow.classList.add('invisible');
         this.gameWindow.classList.remove('blured');
 
+        this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
+        console.log(this.selectedDifficulty);
+
+        if (this.selectedDifficulty === 'easy') {
+            this.speed = easySpeed;
+        };
+        if (this.selectedDifficulty === 'normal') {
+            this.speed = normalSpeed;
+        };
+        if (this.selectedDifficulty === 'hard') {
+            this.speed = hardSpeed;
+        };
 
         this.snakeMove = setInterval(() => {
             if (this.snake.isDead) {
@@ -37,7 +52,7 @@ class Game {
             } else {
                 this.snake.move(this.apple, this.score);
             }
-        }, 1000)
+        }, this.speed);
 
     }
     create() {
