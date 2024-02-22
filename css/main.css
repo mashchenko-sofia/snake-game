@@ -10,6 +10,7 @@
     --snakeColor: #158FAD;
     --fieldColor: rgb(55, 67, 115);
     --cellColor: rgb(76, 91, 152);
+    --appleStalkColor: #55801c;
 }
 
 body {

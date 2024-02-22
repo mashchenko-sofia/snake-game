@@ -1,6 +1,5 @@
 .game {
     margin: 5% auto;
-    /* padding: 0 50px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,11 +36,36 @@
 .apple {
     background-color: var(--appleColor);
     border-radius: 50%;
+
+    /* display: flex; */
+    /* contain: layout; */
 }
 .snake {
     background-color: var(--snakeColor);
     border-radius: 30%;
 
+}
+.apple::after {
+    content: '';
+    display: block;
+    width: 30%;
+    height: 50%;
+    border-radius: 10% 80% 15% 55%;
+    background-color: var(--appleStalkColor);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    margin-top: -50%;
+    margin-left: 20%;
+
+}
+.apple::before {
+    content: '';
+    display: block;
+    width: 45%;
+    height: 30%;
+    border-radius: 100% 5% 60% 10%;
+    background-color: var(--appleStalkColor);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin-left: 50%;
 }
 
 .score-box {
@@ -57,10 +81,3 @@
 
     font-size: 2em;
 }
-
-/* .snake-head {
-
-}
-.snake-tail {
-
-} */

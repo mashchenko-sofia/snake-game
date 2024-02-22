@@ -45,9 +45,6 @@
 .difficulty__label input:checked + span, .reset-record-button:active{
     background-color: transparent;
 }
-/* .difficulty__label input:focus + span {
-
-} */
 .difficulty__label:hover, .reset-record-button:hover{
     transform: scale(0.9);
 }

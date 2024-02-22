@@ -5,21 +5,12 @@ export default class Score {
         this.recordInSettings = document.querySelector('.record__count-in-settings');
 
         this.currentScore = currentScore;
-
-       
-        // this.record = localStorage.getItem('record');
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     // if(this.record) this.create()
-        // })
     }
     increase() {
         this.currentScore += 1;
         this.setRecord();
         this.create();
     }
-    // dicrease() {
-    //     // уменьшение кол-во очков
-    // }
     reset() {
         this.currentScore = 0;
         this.create();
@@ -39,7 +30,6 @@ export default class Score {
         if (this.record === null) {
             this.record = 0;
         }
-        console.log(this.record);
 
         this.scoreBox.innerHTML = this.currentScore;
         this.recordBox.innerHTML = this.record;

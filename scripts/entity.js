@@ -8,7 +8,4 @@ export default class Entity {
         this.x = Math.floor(Math.random() * fieldSize);
         this.y = Math.floor(Math.random() * fieldSize);
     }
-    // destroy(entityClass) {
-    //     this.cell.classList.remove(entityClass);
-    // }
 }

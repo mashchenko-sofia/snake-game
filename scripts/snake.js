@@ -1,7 +1,5 @@
 import { fieldSize } from './config.js';
 import Entity from './entity.js';
-// import Apple from './apple.js';
-// import Score from './score.js';
 
 export default class Snake extends Entity {
     constructor(color, length, direction) {
@@ -14,17 +12,9 @@ export default class Snake extends Entity {
         
         this.isDead = false;
         this.isFull = false;
-        
-        // this.score = score;
-        // this.apple = apple;
     }
     create() {
         super.newPossition()
-
-        // if (this.x + 2 >= fieldSize || this.x - 2 <= 0) {
-        //     this.create()
-        //     console.log('newPos')
-        // }
 
         for (let i = 0; i < this.length; i++ ) {
             this.update();
@@ -62,7 +52,6 @@ export default class Snake extends Entity {
         } else {
             this.cell.classList.add('snake');
             this.body.push(this.cell);
-            // this.body[this.body.length - 1].classList.add('snake');
         }
     }
     eat(apple, score) {
@@ -90,8 +79,6 @@ export default class Snake extends Entity {
     }
     move(apple, score) {
         const applePos = document.getElementsByClassName('apple')[0];
-        // const apple = apple;
-        // const score = score;
 
         this.update();
 
@@ -104,13 +91,10 @@ export default class Snake extends Entity {
 
     }
     destroy() {
-        // this.body[0].classList.remove('snake');
-        // this.body.shift()
         this.body.shift().classList.remove('snake');
     }
     die() {
         for (let i = 0; i < this.body.length; i++ ) {
-            // this.destroy();
             this.body[i].classList.remove('snake')
         }
         this.body = [];
