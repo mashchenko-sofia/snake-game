@@ -30,7 +30,6 @@ class Game {
         this.gameWindow.classList.remove('blured');
 
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
-        console.log(this.selectedDifficulty);
 
         if (this.selectedDifficulty === 'easy') {
             this.speed = easySpeed;
@@ -58,7 +57,6 @@ class Game {
     create() {
         this.score.create();
         this.snake.create();
-        console.log(this.snake.body);
         setTimeout(this.apple.create(), 1500);
     }
     stop() {
@@ -70,7 +68,6 @@ class Game {
         this.stop()
         this.snake.die();
         this.apple.destroy();
-        // this.score.setRecord();
         this.score.reset();
 
         this.menuWindow.classList.add('invisible');
@@ -134,27 +131,73 @@ resetRecordButton.addEventListener('click', () => {
     game.score.create();
 });
 
-// сохранение рекорда
-// врезание в себя
-// game over, win
-// проверка на не принадлежность клетки змейке
+// delites comments, adds apple design
 
 
 
-// выбор сложности (скорости)
-// управление кнопками с помощью клавиатуры
-// settings
-
-// врезание в стены
-// внутренние и внешние свойства
-// переписать css свойства кнопок (кнопки, голубые кнопки, красные кнопки, прозрачные кнопки)
 
 
-// более темный фон body
 
-// текстуры для яблока и змейки
-// нарисовать пимпочку у яблока
-// нарисовать ножки у гусенечки (в зависимости от direction), глазки
-// нарисовать яблоко и медаль
-// дизайн game over и win 
-// css animations
+
+// переключение фокуса между объектами на экране с помощью клавиатуры
+
+// const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
+// console.log(focusableElements);
+// let currentFocus = 0;
+// document.addEventListener('keydown', function(e) {
+//     e.preventDefault();
+//     if (e.code === 'KeyI') {
+//         currentFocus++;
+//         if (currentFocus < 0) {
+//             currentFocus = focusableElements.length - 1;
+//         }
+//         console.log(currentFocus);
+//         focusableElements[currentFocus].focus();
+//     } else if (e.code === 'KeyK') {
+//         currentFocus--;
+//         if (currentFocus >= focusableElements.length) {
+//             currentFocus = 0;
+//         }
+//         console.log(currentFocus);
+//         focusableElements[currentFocus].focus();
+//     } else if (e.code === 'Enter') {
+//         focusableElements[currentFocus].click();
+//     }
+// });
+
+
+
+
+
+// const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
+
+// function handleKeyDown(e) {
+//   let activeElement = 0;
+//   console.log(activeElement);
+//   if (e.code === 'KeyA' || e.code === 'ArrowLeft') {
+//     activeElement-- || focusableElements[focusableElements.length - 1];
+    
+//     focusableElements[activeElement].focus();
+//   } else if (e.code === 'KeyD' || e.code === 'ArrowRight') {
+//     activeElement++ || activeElement = 0;
+//     focusableElements[activeElement].focus();
+//   } else if (e.code === 'Enter') {
+//     activeElement.click();
+//   }
+// }
+// document.addEventListener('keydown', handleKeyDown);
+// focusableElements[0].focus(); 
+
+
+
+
+// document.addEventListener('keydown', function(e) {
+//     const activeElement = document.activeElement;
+//     if (e.key === 'ArrowUp') {
+
+//     } else if (e.key === 'ArrowDown') {
+
+//     } else if (e.key === 'Enter') {
+
+//     }
+//   });
