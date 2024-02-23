@@ -18,7 +18,6 @@ class Game {
         this.gameWindow = document.querySelector('.game__body');
         this.menuWindow = document.querySelector('.menu');
         this.settingsWindow = document.querySelector('.settings');
-
         this.gameFinishedWindow = document.querySelector('.game-finished-window');
         
         this.gameOverTitle = document.querySelector('.game-over__title');
@@ -28,6 +27,7 @@ class Game {
     start() {
         this.menuWindow.classList.add('invisible');
         this.gameWindow.classList.remove('blured');
+        stopBtn.classList.remove('invisible');
 
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
 
@@ -55,6 +55,10 @@ class Game {
 
     }
     create() {
+        this.promtWindow.classList.add('invisible');
+        this.gameFinishedWindow.classList.add('invisible')
+
+
         this.score.create();
         this.snake.create();
         setTimeout(this.apple.create(), 1500);
@@ -62,6 +66,8 @@ class Game {
     stop() {
         this.gameWindow.classList.add('blured');
         this.menuWindow.classList.remove('invisible');
+        stopBtn.classList.add('invisible');
+
         clearInterval(this.snakeMove);
     }
     finish() {
@@ -72,7 +78,7 @@ class Game {
 
         this.menuWindow.classList.add('invisible');
         this.gameFinishedWindow.classList.remove('invisible');
-        
+        stopBtn.classList.add('invisible');
     }
 
 };
@@ -81,30 +87,30 @@ game.field.createField(fieldSize);
 
 const startBtn = document.querySelector('.start-button');
 startBtn.addEventListener('click', () => {
-    game.promtWindow.classList.add('invisible');
+    // game.promtWindow.classList.add('invisible');
     game.create();
     game.start();
-    stopBtn.classList.remove('invisible');
+    // stopBtn.classList.remove('invisible');
 });
 
 const restartBtn = document.querySelector('.restart-button');
 restartBtn.addEventListener('click', () => {
-    game.gameFinishedWindow.classList.add('invisible')
+    // game.gameFinishedWindow.classList.add('invisible')
+    // stopBtn.classList.remove('invisible');
     game.create();
     game.start();
-    stopBtn.classList.remove('invisible');
 })
 
 const continueBtn = document.querySelector('.continue-button');
 continueBtn.addEventListener('click', () => {
+    // stopBtn.classList.remove('invisible');
     game.start();
-    stopBtn.classList.remove('invisible');
 })
 
 const stopBtn = document.querySelector('.stop-button');
 stopBtn.addEventListener('click', () => {
+    // stopBtn.classList.add('invisible');
     game.stop();
-    stopBtn.classList.add('invisible');
 })
 
 document.addEventListener('keydown', (e) => {
@@ -131,34 +137,105 @@ resetRecordButton.addEventListener('click', () => {
     game.score.create();
 });
 
-// delites comments, adds apple design
-
-
-
-
 
 
 
 // переключение фокуса между объектами на экране с помощью клавиатуры
 
-// const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
-// console.log(focusableElements);
+const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`);
+console.log(focusableElements);
+let currentFocusIndex = 0;
+document.addEventListener("keydown", e => {
+  e.preventDefault();
+
+  switch (e.code) {
+    case "KeyW":
+      moveToNextElement();
+      break;
+    case "KeyS":
+      moveToPreviousElement();
+      break;
+    case "Enter":
+      handleEnterPress();
+      break;
+  }
+});
+
+function moveToNextElement() {
+  const nextIndex = getNextFocusableIndex();
+  focusOnElementAtIndex(nextIndex);
+}
+
+function moveToPreviousElement() {
+  const previousIndex = getPreviousFocusableIndex();
+  focusOnElementAtIndex(previousIndex);
+}
+
+function handleEnterPress() {
+  focusableElements[currentFocusIndex].click();
+}
+
+function getNextFocusableIndex() {
+  return Math.min(focusableElements.length - 1, currentFocusIndex + 1);
+}
+
+function getPreviousFocusableIndex() {
+  return Math.max(0, currentFocusIndex - 1);
+}
+
+function focusOnElementAtIndex(index) {
+  currentFocusIndex = index;
+  focusableElements[index].focus();
+
+  console.log(index)
+}
+
+
+
+
+// const buttons = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
+// console.log(buttons);
+// let currentFocus = 0;
+// function handleKeyDown(event) {
+// //   const activeElement = document.activeElement;
+//   if (event.key === 'a' || event.key === 'A' || event.key === 'ArrowLeft') {
+//     currentFocus--;
+//     console.log(currentFocus)
+//     buttons[currentFocus].focus() || buttons[buttons.length - 1];
+//   } else if (event.key === 'd' || event.key === 'D' || event.key === 'ArrowRight') {
+//     currentFocus++;
+//     console.log(currentFocus)
+//     buttons[currentFocus].focus() || buttons[0];
+//   } else if (event.key === 'Enter') {
+//     buttons[currentFocus].click();
+//   }
+// }
+// document.addEventListener('keydown', handleKeyDown);
+// buttons[0].focus(); 
+
+
+
+// const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`);
 // let currentFocus = 0;
 // document.addEventListener('keydown', function(e) {
-//     e.preventDefault();
+//     // e.preventDefault();
 //     if (e.code === 'KeyI') {
+//         focusableElements[currentFocus].blur();
 //         currentFocus++;
+//         console.log(currentFocus);
 //         if (currentFocus < 0) {
 //             currentFocus = focusableElements.length - 1;
+//             console.log('I');
 //         }
-//         console.log(currentFocus);
 //         focusableElements[currentFocus].focus();
 //     } else if (e.code === 'KeyK') {
+//         focusableElements[currentFocus].blur();
 //         currentFocus--;
+//         console.log(currentFocus);
 //         if (currentFocus >= focusableElements.length) {
 //             currentFocus = 0;
+//             console.log('K');
 //         }
-//         console.log(currentFocus);
 //         focusableElements[currentFocus].focus();
 //     } else if (e.code === 'Enter') {
 //         focusableElements[currentFocus].click();
@@ -167,10 +244,7 @@ resetRecordButton.addEventListener('click', () => {
 
 
 
-
-
 // const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
-
 // function handleKeyDown(e) {
 //   let activeElement = 0;
 //   console.log(activeElement);
@@ -187,17 +261,3 @@ resetRecordButton.addEventListener('click', () => {
 // }
 // document.addEventListener('keydown', handleKeyDown);
 // focusableElements[0].focus(); 
-
-
-
-
-// document.addEventListener('keydown', function(e) {
-//     const activeElement = document.activeElement;
-//     if (e.key === 'ArrowUp') {
-
-//     } else if (e.key === 'ArrowDown') {
-
-//     } else if (e.key === 'Enter') {
-
-//     }
-//   });
