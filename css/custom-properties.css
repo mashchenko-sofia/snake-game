@@ -1,0 +1,12 @@
+:root {
+    --fieldSize: 20;
+
+    --appleColor: #B8255F;
+    --appleStalkColor: #55801c;
+    --snakeColor: #158FAD;
+    --fieldColor: rgb(55, 67, 115);
+    --cellColor: rgb(76, 91, 152);
+
+    --shadowBig: 0 0 30px rgba(0, 0, 0, 0.6);
+    --shadowSmall: 0 0 15px rgba(0, 0, 0, 0.4);
+}

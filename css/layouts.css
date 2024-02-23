@@ -1,0 +1,104 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 5% auto;
+}
+.game__header {
+    position: absolute;
+    z-index: 1;
+
+    margin: 0 40px;
+}
+
+
+
+.field {
+    display: grid;
+    grid-template-rows: repeat(var(--fieldSize), calc(100% / var(--fieldSize)) );
+    grid-template-columns:repeat(var(--fieldSize), calc(100% / var(--fieldSize)));
+    
+    width: 70vw;
+    height: 70vw;
+
+    padding: 2%;
+    border-radius: 5%;
+
+    background-color: var(--fieldColor);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+
+}
+.cell {
+    margin: 35%;
+    border-radius: 50%;
+
+    box-sizing: content-box;
+
+    background-color: var(--cellColor); 
+}
+
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.nav {
+    align-self: flex-end;
+}
+
+
+
+.difficulty {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+.difficulty__form {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 2em;
+}
+
+
+
+.game-finished-window {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.settings__item {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+
+
+.score-box {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    
+    margin-left: 1em;
+}
+.score, .record {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    font-size: 2em;
+}

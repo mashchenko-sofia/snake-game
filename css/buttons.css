@@ -1,0 +1,43 @@
+.button {
+    padding: 5px 10px;
+    border-radius: 10px;
+
+    color: white;
+    box-shadow: var(--shadowSmall);
+    
+    cursor: pointer;
+}
+
+
+/* BUTTON TYPES  */
+.button_first {
+    background-color: var(--appleColor); 
+    font-size: 2.5em;
+}
+.button_second {
+    background-color: var(--snakeColor);
+    font-size: 2em;
+}
+.button_third {
+    font-size: 1.5em;
+}
+/* 
+.button_img {
+
+} 
+*/
+
+/* BUTTON CHANGES */
+
+.button:hover, .button:focus {
+    transform: scale(0.9);
+    filter: opacity(80%);
+    
+}
+.button:active, .button input:checked {
+    background-color: transparent;
+}
+
+.button_img:hover, .button_img:focus, .button_img:active {
+    transform: scale(0.9);
+}

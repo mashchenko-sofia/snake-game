@@ -1,0 +1,41 @@
+.apple, .snake {
+    margin: 0;
+
+    box-shadow: var(--shadowSmall);
+}
+.apple {
+    background-color: var(--appleColor);
+    border-radius: 50%;
+}
+.snake {
+    background-color: var(--snakeColor);
+    border-radius: 30%;
+
+}
+.apple::after {
+    content: '';
+    display: block;
+    margin-top: -50%;
+    margin-left: 20%;
+
+    width: 30%;
+    height: 50%;
+    border-radius: 10% 80% 15% 55%;
+
+    background-color: var(--appleStalkColor);
+    box-shadow: var(--shadowSmall);
+
+}
+.apple::before {
+    content: '';
+    display: block;
+    margin-left: 50%;
+
+    width: 45%;
+    height: 30%;
+    border-radius: 100% 5% 60% 10%;
+
+    background-color: var(--appleStalkColor);
+    box-shadow: var(--shadowSmall);
+}
+
