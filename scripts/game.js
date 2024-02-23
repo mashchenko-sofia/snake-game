@@ -87,29 +87,23 @@ game.field.createField(fieldSize);
 
 const startBtn = document.querySelector('.start-button');
 startBtn.addEventListener('click', () => {
-    // game.promtWindow.classList.add('invisible');
     game.create();
     game.start();
-    // stopBtn.classList.remove('invisible');
 });
 
 const restartBtn = document.querySelector('.restart-button');
 restartBtn.addEventListener('click', () => {
-    // game.gameFinishedWindow.classList.add('invisible')
-    // stopBtn.classList.remove('invisible');
     game.create();
     game.start();
 })
 
 const continueBtn = document.querySelector('.continue-button');
 continueBtn.addEventListener('click', () => {
-    // stopBtn.classList.remove('invisible');
     game.start();
 })
 
 const stopBtn = document.querySelector('.stop-button');
 stopBtn.addEventListener('click', () => {
-    // stopBtn.classList.add('invisible');
     game.stop();
 })
 
@@ -143,16 +137,15 @@ resetRecordButton.addEventListener('click', () => {
 // переключение фокуса между объектами на экране с помощью клавиатуры
 
 const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`);
-console.log(focusableElements);
 let currentFocusIndex = 0;
 document.addEventListener("keydown", e => {
   e.preventDefault();
 
   switch (e.code) {
-    case "KeyW":
+    case "KeyS":
       moveToNextElement();
       break;
-    case "KeyS":
+    case "KeyW":
       moveToPreviousElement();
       break;
     case "Enter":
@@ -185,79 +178,12 @@ function getPreviousFocusableIndex() {
 
 function focusOnElementAtIndex(index) {
   currentFocusIndex = index;
-  focusableElements[index].focus();
+  const element = focusableElements[index];
+  const closestLabel = element.closest('label');
 
-  console.log(index)
+  if (closestLabel) {
+    closestLabel.focus();
+  } else {
+    element.focus();
+  }
 }
-
-
-
-
-// const buttons = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
-// console.log(buttons);
-// let currentFocus = 0;
-// function handleKeyDown(event) {
-// //   const activeElement = document.activeElement;
-//   if (event.key === 'a' || event.key === 'A' || event.key === 'ArrowLeft') {
-//     currentFocus--;
-//     console.log(currentFocus)
-//     buttons[currentFocus].focus() || buttons[buttons.length - 1];
-//   } else if (event.key === 'd' || event.key === 'D' || event.key === 'ArrowRight') {
-//     currentFocus++;
-//     console.log(currentFocus)
-//     buttons[currentFocus].focus() || buttons[0];
-//   } else if (event.key === 'Enter') {
-//     buttons[currentFocus].click();
-//   }
-// }
-// document.addEventListener('keydown', handleKeyDown);
-// buttons[0].focus(); 
-
-
-
-// const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`);
-// let currentFocus = 0;
-// document.addEventListener('keydown', function(e) {
-//     // e.preventDefault();
-//     if (e.code === 'KeyI') {
-//         focusableElements[currentFocus].blur();
-//         currentFocus++;
-//         console.log(currentFocus);
-//         if (currentFocus < 0) {
-//             currentFocus = focusableElements.length - 1;
-//             console.log('I');
-//         }
-//         focusableElements[currentFocus].focus();
-//     } else if (e.code === 'KeyK') {
-//         focusableElements[currentFocus].blur();
-//         currentFocus--;
-//         console.log(currentFocus);
-//         if (currentFocus >= focusableElements.length) {
-//             currentFocus = 0;
-//             console.log('K');
-//         }
-//         focusableElements[currentFocus].focus();
-//     } else if (e.code === 'Enter') {
-//         focusableElements[currentFocus].click();
-//     }
-// });
-
-
-
-// const focusableElements = document.querySelectorAll(` input:not(.invisible input):not(.invisible), button:not(.invisible button):not(.invisible)`)
-// function handleKeyDown(e) {
-//   let activeElement = 0;
-//   console.log(activeElement);
-//   if (e.code === 'KeyA' || e.code === 'ArrowLeft') {
-//     activeElement-- || focusableElements[focusableElements.length - 1];
-    
-//     focusableElements[activeElement].focus();
-//   } else if (e.code === 'KeyD' || e.code === 'ArrowRight') {
-//     activeElement++ || activeElement = 0;
-//     focusableElements[activeElement].focus();
-//   } else if (e.code === 'Enter') {
-//     activeElement.click();
-//   }
-// }
-// document.addEventListener('keydown', handleKeyDown);
-// focusableElements[0].focus(); 
