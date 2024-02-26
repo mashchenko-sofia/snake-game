@@ -20,8 +20,8 @@
     grid-template-rows: repeat(var(--fieldSize), calc(100% / var(--fieldSize)) );
     grid-template-columns:repeat(var(--fieldSize), calc(100% / var(--fieldSize)));
     
-    width: 70vw;
-    height: 70vw;
+    width: 60vh;
+    height: 60vh;
 
     padding: 2%;
     border-radius: 5%;
