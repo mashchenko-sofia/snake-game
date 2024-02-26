@@ -32,13 +32,13 @@ class Game {
         this.selectedDifficulty = document.querySelector('input[name="difficulty"]:checked').value;
 
         if (this.selectedDifficulty === 'easy') {
-            this.speed = easySpeed;
+            this._speed = easySpeed;
         };
         if (this.selectedDifficulty === 'normal') {
-            this.speed = normalSpeed;
+            this._speed = normalSpeed;
         };
         if (this.selectedDifficulty === 'hard') {
-            this.speed = hardSpeed;
+            this._speed = hardSpeed;
         };
 
         this.snakeMove = setInterval(() => {
@@ -51,7 +51,7 @@ class Game {
             } else {
                 this.snake.move(this.apple, this.score);
             }
-        }, this.speed);
+        }, this._speed);
 
     }
     create() {

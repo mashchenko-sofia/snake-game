@@ -5,30 +5,29 @@ export default class Snake extends Entity {
     constructor(color, length, direction) {
         super();
   
-        this.color = color;
+        // this.color = color;
         this.body = [];
-        this.length = length;
-        this.direction = direction;
+        this._length = length;
+        this._direction = direction;
         
-        this.isDead = false;
-        this.isFull = false;
+        this._isDead = false;
     }
     create() {
         super.newPossition()
 
-        for (let i = 0; i < this.length; i++ ) {
+        for (let i = 0; i < this._length; i++ ) {
             this.update();
         }
         this.setControls();
     }
     update() {
-        if (this.direction === 'up') {
+        if (this._direction === 'up') {
             this.x--;
-        } else if (this.direction === 'down') {
+        } else if (this._direction === 'down') {
             this.x++
-        } else if (this.direction === 'left') {
+        } else if (this._direction === 'left') {
             this.y--
-        } else if (this.direction === 'right') {
+        } else if (this._direction === 'right') {
             this.y++
         };
 
@@ -48,7 +47,7 @@ export default class Snake extends Entity {
         this.cell = document.getElementById(`cell-${this.x}-${this.y}`)
 
         if (this.body.includes(this.cell)) {
-            this.isDead = true;
+            this._isDead = true;
         } else {
             this.cell.classList.add('snake');
             this.body.push(this.cell);
@@ -62,17 +61,17 @@ export default class Snake extends Entity {
     }
     setControls() {
         document.addEventListener('keydown', (e) => {
-            if ((e.code === 'KeyW' || e.code === 'ArrowUp') && this.direction !== 'down') {
-                this.direction = 'up';
+            if ((e.code === 'KeyW' || e.code === 'ArrowUp') && this._direction !== 'down') {
+                this._direction = 'up';
             } 
-            if ((e.code === 'KeyD' || e.code === 'ArrowRight') && this.direction !== 'left') {
-                this.direction = 'right';
+            if ((e.code === 'KeyD' || e.code === 'ArrowRight') && this._direction !== 'left') {
+                this._direction = 'right';
             } 
-            if ((e.code === 'KeyS' || e.code === 'ArrowDown') && this.direction !== 'up') {
-                this.direction = 'down';
+            if ((e.code === 'KeyS' || e.code === 'ArrowDown') && this._direction !== 'up') {
+                this._direction = 'down';
             } 
-            if ((e.code === 'KeyA' || e.code === 'ArrowLeft') && this.direction !== 'right') {
-                this.direction = 'left';
+            if ((e.code === 'KeyA' || e.code === 'ArrowLeft') && this._direction !== 'right') {
+                this._direction = 'left';
             }
         });
 
@@ -98,7 +97,9 @@ export default class Snake extends Entity {
             this.body[i].classList.remove('snake')
         }
         this.body = [];
-        this.isDead = false;
-        this.isFull = false;
+        this._isDead = false;
+    }
+    get isDead() {
+        return this._isDead
     }
 }

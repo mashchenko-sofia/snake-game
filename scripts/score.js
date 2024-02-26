@@ -4,36 +4,41 @@ export default class Score {
         this.recordBox = document.querySelector('.record__count');
         this.recordInSettings = document.querySelector('.record__count-in-settings');
 
-        this.currentScore = currentScore;
+        this._currentScore = currentScore;
     }
     increase() {
-        this.currentScore += 1;
+        this._currentScore += 1;
         this.setRecord();
         this.create();
     }
     reset() {
-        this.currentScore = 0;
+        this._currentScore = 0;
         this.create();
     }
     setRecord() {
-        if (this.currentScore >= this.record) {
-            localStorage.setItem('record', this.currentScore);
+        if (this._currentScore >= this._record) {
+            localStorage.setItem('record', this._currentScore);
         } else {
-            localStorage.setItem('record', this.record)
+            localStorage.setItem('record', this._record)
         }
     }
     resetRecord() {
         localStorage.removeItem('record');
     }
     create() {
-        this.record = localStorage.getItem('record');
-        if (this.record === null) {
-            this.record = 0;
+        this._record = localStorage.getItem('record');
+        if (this._record === null) {
+            this._record = 0;
         }
 
-        this.scoreBox.innerHTML = this.currentScore;
-        this.recordBox.innerHTML = this.record;
-        this.recordInSettings.innerHTML = this.record;
-
+        this.scoreBox.innerHTML = this._currentScore;
+        this.recordBox.innerHTML = this._record;
+        this.recordInSettings.innerHTML = this._record;
+    }
+    get currentScore() {
+        return this._currentScore;
+    }
+    get record() {
+        return this._record;
     }
 }
